@@ -35,7 +35,7 @@ describe("sumNumbers()", () => {
   });
 });
 
-describe.only("newMemberArrayToObject()", () => {
+describe("newMemberArrayToObject()", () => {
   test("it converts a 2d array into an object", () => {
     const actual = newMemberArrayToObject(newMember);
     const expected = {
@@ -59,13 +59,13 @@ describe("groupClassByInstructor()", () => {
   });
 });
 
-// describe("omitAgeFromMembers()", () => {
-//   test("it returns the members without their ages", () => {
-//     const actual = omitAgeFromMembers(members);
-//     const expected = membersWithoutAges;
-//     expect(actual).toStrictEqual(expected);
-//   });
-// });
+describe.only("omitAgeFromMembers()", () => {
+  test("it returns the members without their ages", () => {
+    const actual = omitAgeFromMembers(members);
+    const expected = membersWithoutAges;
+    expect(actual).toStrictEqual(expected);
+  });
+});
 
 describe("countClassesByInstructor()", () => {
   test("it returns the number of keys in an object", () => {
