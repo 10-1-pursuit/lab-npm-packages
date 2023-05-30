@@ -78,14 +78,18 @@ function countClassesByInstructor(collection, instructor) {
 function removeInactiveMembers(collection) {
   return _.filter(collection, { currentMember: true });
 }
-console.log(removeInactiveMembers(members));
+
 /**
  * Get a list of unique class titles and their price
  * @param {Object} collection - an array of yoga class objects
  * @return {number} An array of objects that have a unique title and a price
  */
-function getUniqueClasses(collection) {}
-
+function getUniqueClasses(collection) {
+  return _.uniqBy(collection, "title")
+    .map(({ title, priceInCents }) => ({ title, priceInCents }));
+  
+}
+console.log(getUniqueClasses(yogaClasses));
 /**
  * Get a list of classes organized by title, then by level.
  * The titles should be in ascending order, the levels should be in descending order
