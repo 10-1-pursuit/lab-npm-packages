@@ -35,7 +35,7 @@ describe("sumNumbers()", () => {
   });
 });
 
-describe("newMemberArrayToObject()", () => {
+describe.only("newMemberArrayToObject()", () => {
   test("it converts a 2d array into an object", () => {
     const actual = newMemberArrayToObject(newMember);
     const expected = {
