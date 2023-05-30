@@ -33,7 +33,7 @@ function sumNumbers(array) {
  */
 function newMemberArrayToObject(member) {
 
- return  _.fromPairs(member)
+ return  _.fromPairs(member);
   
 }
 
@@ -44,7 +44,7 @@ function newMemberArrayToObject(member) {
  */
 function groupClassByInstructor(collection) {
 
- return _.groupBy(collection,"instructor" )
+ return _.groupBy(collection,"instructor" );
 }
 
 /**
@@ -54,7 +54,7 @@ function groupClassByInstructor(collection) {
  */
 function omitAgeFromMembers(collection) {
 
-  return _.map(collection, (members) => _.omit(members, "age"))
+  return _.map(collection, (members) => _.omit(members, "age"));
 }
 
 /**
@@ -66,7 +66,7 @@ function omitAgeFromMembers(collection) {
 function countClassesByInstructor(collection, instructorName) {
 //(instructor != undefined) ? _.countBy(collection, instructor) : "There is no instructor by that name."
 const filteredCollection = _.filter(collection, {'instructor': instructorName}).length;
- return (filteredCollection > 0) ? filteredCollection : "There is no instructor by that name."
+ return (filteredCollection > 0) ? filteredCollection : "There is no instructor by that name.";
 
 }
 
@@ -77,8 +77,8 @@ const filteredCollection = _.filter(collection, {'instructor': instructorName}).
  */
 function removeInactiveMembers(collection) {
 
-
-  
+let filteredMembers = _.filter(collection, (members) => members.currentMember)
+return filteredMembers;
 }
 
 /**
@@ -86,7 +86,11 @@ function removeInactiveMembers(collection) {
  * @param {Object} collection - an array of yoga class objects
  * @return {number} An array of objects that have a unique title and a price
  */
-function getUniqueClasses(collection) {}
+function getUniqueClasses(collection) {
+
+  let NewClassInfo = _.map(_.uniqBy(collection, "title"), ({title, priceInCents }) => ({title, priceInCents}));
+  return NewClassInfo
+}
 
 /**
  * Get a list of classes organized by title, then by level.
@@ -94,7 +98,14 @@ function getUniqueClasses(collection) {}
  * @param {Object} collection - an array of yoga class objects
  * @return {number} An array of objects that are organized by title then by level. The array should only have the title, instructor, and level fields
  */
-function orderClassesByTitleAndLevel(collection) {}
+function orderClassesByTitleAndLevel(collection) {
+  let reorganizedClasses = _.map(
+    _.orderBy(collection, ['title', 'level'], ['asc', 'desc']),
+    ({ title, instructor, level }) => ({ title, instructor, level })
+  );
+ 
+   return reorganizedClasses;
+}
 
 module.exports = {
   numberOfKeys,
