@@ -22,15 +22,16 @@ function numberOfKeys(obj) {
  * @return {number} The sum of the numbers in an array
  */
 function sumNumbers(array) {
-  return _.reduce(
-    array,
-    (sum, item) => {
-      return _.isNumber(item) ? sum + item : sum + 0;
-    },
-    0
-  );
+  // return _.reduce(
+  //   array,
+  //   (sum, item) => {
+  //     return _.isNumber(item) ? sum + item : sum + 0;
+  //   },
+  //   0
+  // );
+  return _.reduce(_.compact(array), (acc, curr) => acc + curr);
 }
-
+console.log(sumNumbers(simpleArray));
 /**
  * Convert a two-dimensional array of new member data (each inner array having two values: the first being the key, the second being the value) into an object
  * @param {Array[]} member -
