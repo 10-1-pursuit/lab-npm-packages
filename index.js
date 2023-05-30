@@ -120,7 +120,11 @@ function getUniqueClasses(collection, priceInCents) {
  */
 function orderClassesByTitleAndLevel(collection) {
 
+  let classByTitleAndLevel = _.sortBy(collection, ['title', 'level'], ['asc', 'desc']);
 
+  if (classByTitleAndLevel) {
+    return _.map(classByTitleAndLevel, ({ title, instructor, level }) => ({ title, instructor, level }))
+  }
 }
 
 module.exports = {
