@@ -9,7 +9,7 @@ const newMember = require("./data/new-member");
  * @param {Object} obj -
  * @return {number} The number of keys in the object
  */
-function numberOfKeys(obj) {}
+const numberOfKeys = obj => _.size(obj)
 
 /**
  * Remove the falsy values in a numbers array and return the sum
