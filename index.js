@@ -35,7 +35,16 @@ function sumNumbers(array) {
  * @param {Array[]} member -
  * @return {number} The sum of the numbers in an array
  */
-function newMemberArrayToObject(member) {}
+function newMemberArrayToObject(member) {
+  let newObj = {}
+  member.forEach((x) => {
+    let key = x[0]
+    let value = x[1]
+    newObj[key] = value
+  }
+  )
+  return newObj
+}
 
 /**
  * Return an array of objects that grouped by instructors from the classes array of objects
