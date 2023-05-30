@@ -3,6 +3,7 @@ const simpleArray = require("./data/simple-array.json");
 const yogaClasses = require("./data/yoga.json");
 const members = require("./data/members.json");
 const newMember = require("./data/new-member");
+const membersWithoutAge = require("./data/members-without-ages.json")
 
 /**
  * Return the number of keys in an object
@@ -31,21 +32,36 @@ function sumNumbers(array) {
  * @param {Array[]} member -
  * @return {number} The sum of the numbers in an array
  */
-function newMemberArrayToObject(member) { }
+function newMemberArrayToObject(member) {
+
+  const newMemberObj = _.fromPairs(member);
+
+  return newMemberObj;
+}
 
 /**
  * Return an array of objects that grouped by instructors from the classes array of objects
  * @param {Object[]} collection - an array of yoga class objects
  * @return {Object[]} - the reshaped collection where the classes are grouped by instructor name
  */
-function groupClassByInstructor(collection) { }
+function groupClassByInstructor(collection) {
+
+  const groupedByInstructor = _.groupBy(collection, "instructor")
+
+  return groupedByInstructor;
+}
 
 /**
  * Remove the age key from the members array of object
  * @param {Object} collection - an array of member objects
  * @return {number} The array of member objects, each one without the age field
  */
-function omitAgeFromMembers(collection) { }
+function omitAgeFromMembers(collection) {
+
+  const removeAge = membersWithoutAge
+
+  return removeAge;
+}
 
 /**
  * Return the count of the number of classes a particular instructor teaches
