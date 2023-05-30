@@ -37,14 +37,16 @@ function sumNumbers(array) {
 function newMemberArrayToObject(member) {
   return _.fromPairs(member);
 };
-console.log(newMemberArrayToObject(newMember));
+
 /**
  * Return an array of objects that grouped by instructors from the classes array of objects
  * @param {Object[]} collection - an array of yoga class objects
  * @return {Object[]} - the reshaped collection where the classes are grouped by instructor name
  */
-function groupClassByInstructor(collection) {}
-
+function groupClassByInstructor(collection) {
+  return _.groupBy(collection, 'instructor');
+};
+console.log(groupClassByInstructor(yogaClasses));
 /**
  * Remove the age key from the members array of object
  * @param {Object} collection - an array of member objects
