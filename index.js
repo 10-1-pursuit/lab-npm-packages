@@ -29,6 +29,7 @@ function sumNumbers(array) {
  * @return {Object} The sum of the numbers in an array
  */
 function newMemberArrayToObject(member) {
+  return _.fromPairs(member)
 }
 
 /**
