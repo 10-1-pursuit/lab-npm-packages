@@ -28,14 +28,16 @@ function sumNumbers(array) {
       : sum + 0;
   }, 0)
 }
-console.log(sumNumbers(simpleArray));
+
 /**
  * Convert a two-dimensional array of new member data (each inner array having two values: the first being the key, the second being the value) into an object
  * @param {Array[]} member -
  * @return {number} The sum of the numbers in an array
  */
-function newMemberArrayToObject(member) {}
-
+function newMemberArrayToObject(member) {
+  return _.fromPairs(member);
+};
+console.log(newMemberArrayToObject(newMember));
 /**
  * Return an array of objects that grouped by instructors from the classes array of objects
  * @param {Object[]} collection - an array of yoga class objects
