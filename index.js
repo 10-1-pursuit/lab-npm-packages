@@ -10,10 +10,11 @@ const newMember = require("./data/new-member");
  * @return {number} The number of keys in the object
  */
 function numberOfKeys(obj) {
-  return _.keysIn(obj).reduce((sum, acc) => {
-    acc = 1;
-    return sum + acc;
-  }, 0);
+  // return _.keysIn(obj).reduce((sum, acc) => {
+  //   acc = 1;
+  //   return sum + acc;
+  // }, 0);
+  return _.size(obj);
 }
 
 /**
