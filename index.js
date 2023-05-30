@@ -69,21 +69,48 @@ function omitAgeFromMembers(collection) {
  * @param {String} instructorName - The name of the instructor
  * @return {number} The sum of the numbers in an array
  */
-function countClassesByInstructor(collection, instructor) { }
+function countClassesByInstructor(collection, teachersName) {
+
+  let count = 0;
+  let howManyClasses = _.filter(collection, { "instructor": teachersName }).length // object.keys(obj).length // propertyOf /findKey
+  let countClasses = _.countBy(collection, { "instructor": teachersName }).length //count++
+
+  if (howManyClasses > 0) {
+    return howManyClasses;
+  } else {
+
+    return "There is no instructor by that name."
+  }
+
+}
 
 /**
  * Remove inactive members from the members array
  * @param {Object} collection - an array of member objects
  * @return {number} The array of member objects with only active members
  */
-function removeInactiveMembers(collection) { }
+function removeInactiveMembers(collection, membershipStatus) {
+
+  let InactiveMembersBeGone = _.filter(collection, { "currentMember": true })
+
+  if (InactiveMembersBeGone)
+
+    return InactiveMembersBeGone;
+}
 
 /**
  * Get a list of unique class titles and their price
  * @param {Object} collection - an array of yoga class objects
  * @return {number} An array of objects that have a unique title and a price
  */
-function getUniqueClasses(collection) { }
+function getUniqueClasses(collection, priceInCents) {
+
+  let mapUniqueClasses = _.uniqBy(collection, "title")
+
+  if (mapUniqueClasses) {
+    return _.map(mapUniqueClasses, ({ title, priceInCents }) => ({ title, priceInCents }))
+  }
+}
 
 /**
  * Get a list of classes organized by title, then by level.
@@ -91,7 +118,10 @@ function getUniqueClasses(collection) { }
  * @param {Object} collection - an array of yoga class objects
  * @return {number} An array of objects that are organized by title then by level. The array should only have the title, instructor, and level fields
  */
-function orderClassesByTitleAndLevel(collection) { }
+function orderClassesByTitleAndLevel(collection) {
+
+
+}
 
 module.exports = {
   numberOfKeys,
