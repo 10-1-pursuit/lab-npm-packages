@@ -67,7 +67,7 @@ describe("omitAgeFromMembers()", () => {
   });
 });
 
-describe.only("countClassesByInstructor()", () => {
+describe("countClassesByInstructor()", () => {
   test("it returns the number of keys in an object", () => {
     const actual = countClassesByInstructor(yogaClasses, "Lazuli Moon");
     const expected = 5;
@@ -101,7 +101,7 @@ describe("getUniqueClasses()", () => {
   });
 });
 
-describe("orderClassesByTitleAndLevel()", () => {
+describe.only("orderClassesByTitleAndLevel()", () => {
   test("it returns the number of keys in an object", () => {
     const actual = orderClassesByTitleAndLevel(yogaClasses);
     const expected = [

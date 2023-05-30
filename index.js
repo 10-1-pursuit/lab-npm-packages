@@ -10,7 +10,7 @@ const newMember = require("./data/new-member");
  * @return {number} The number of keys in the object
  */
 function numberOfKeys(obj) {
-return  _.keys(obj).length
+  return _.keys(obj).length;
 }
 
 /**
@@ -19,8 +19,8 @@ return  _.keys(obj).length
  * @return {number} The sum of the numbers in an array
  */
 function sumNumbers(array) {
-let result = array.filter(Number)
-return _.sum(result)
+  let result = array.filter(Number);
+  return _.sum(result);
 }
 
 /**
@@ -29,7 +29,7 @@ return _.sum(result)
  * @return {number} The sum of the numbers in an array
  */
 function newMemberArrayToObject(member) {
-  return _.fromPairs(member)
+  return _.fromPairs(member);
 }
 
 /**
@@ -37,10 +37,7 @@ function newMemberArrayToObject(member) {
  * @param {Object[]} collection - an array of yoga class objects
  * @return {Object[]} - the reshaped collection where the classes are grouped by instructor name
  */
-function groupClassByInstructor(collection) {
- 
-
-}
+function groupClassByInstructor(collection) {}
 
 /**
  * Remove the age key from the members array of object
@@ -48,36 +45,46 @@ function groupClassByInstructor(collection) {
  * @return {number} The array of member objects, each one without the age field
  */
 function omitAgeFromMembers(collection) {
-return collection.map((key)=> _.omit(key, ['age']))
+  return collection.map((key) => _.omit(key, ["age"]));
 }
 
-/** 
+/**
  * Return the count of the number of classes a particular instructor teaches
  * @param {Object[]} collection - An array of yoga class objects
  * @param {String} instructorName - The name of the instructor
  * @return {number} The sum of the numbers in an array
  */
 function countClassesByInstructor(collection, instructorName) {
- let filer = collection.filter((x)=>x.instructor.includes(instructorName))
- if(filer.length === 0){
-  return `There is no instructor by that name.`
- }
-return filer.length
+  let filtered = collection.filter((x) =>
+    x.instructor.includes(instructorName)
+  );
+  if (filtered.length === 0) {
+    return `There is no instructor by that name.`;
+  }
+  return filtered.length;
 }
-
 /**
  * Remove inactive members from the members array
  * @param {Object} collection - an array of member objects
  * @return {number} The array of member objects with only active members
  */
-function removeInactiveMembers(collection) {}
+function removeInactiveMembers(collection) {
+  return collection.filter((collections) => collections.currentMember === true);
+}
 
 /**
  * Get a list of unique class titles and their price
  * @param {Object} collection - an array of yoga class objects
  * @return {number} An array of objects that have a unique title and a price
  */
-function getUniqueClasses(collection) {}
+function getUniqueClasses(collection) {
+  let uniqueArr = [];
+  for (let collections of collection) {
+    let unique = _.pick(collections, ["priceInCents", "title"]);
+    uniqueArr.push(unique);
+  }
+  return _.slice(uniqueArr, 0, 4);
+}
 
 /**
  * Get a list of classes organized by title, then by level.
