@@ -23,7 +23,7 @@ const sumNumbers = (array) => _.sum(_.compact(array))
  * @param {Array[]} member -
  * @return {number} The sum of the numbers in an array
  */
-function newMemberArrayToObject(member) { }
+const newMemberArrayToObject = (member) => _.fromPairs(member)
 
 /**
  * Return an array of objects that grouped by instructors from the classes array of objects
