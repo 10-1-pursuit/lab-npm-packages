@@ -57,7 +57,13 @@ return collection.map((key)=> _.omit(key, ['age']))
  * @param {String} instructorName - The name of the instructor
  * @return {number} The sum of the numbers in an array
  */
-function countClassesByInstructor(collection, instructor) {}
+function countClassesByInstructor(collection, instructorName) {
+ let filer = collection.filter((x)=>x.instructor.includes(instructorName))
+ if(filer.length === 0){
+  return `There is no instructor by that name.`
+ }
+return filer.length
+}
 
 /**
  * Remove inactive members from the members array
