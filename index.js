@@ -9,29 +9,72 @@ const newMember = require("./data/new-member");
  * @param {Object} obj -
  * @return {number} The number of keys in the object
  */
-function numberOfKeys(obj) {}
+function numberOfKeys(obj) {
+  return _.keys(obj[0]).length
+
+}
+console.log(numberOfKeys(yogaClasses))
 
 /**
  * Remove the falsy values in a numbers array and return the sum
  * @param {numbers[]} array - An array of numbers that can also contain some falsy values
  * @return {number} The sum of the numbers in an array
  */
-function sumNumbers(array) {}
 
+
+function sumNumbers(array) {
+ const newArray= _.remove(array, function(n){
+    return n 
+  })
+  return newArray.reduce((a,b)=>a+b);
+
+} ; 
+console.log(sumNumbers(simpleArray))
 /**
- * Convert a two-dimensional array of new member data (each inner array having two values: the first being the key, the second being the value) into an object
+ * Convert a two-dimensional array of new member data (each inner array having two values: 
+ * the first being the key, the second being the value) into an object
  * @param {Array[]} member -
  * @return {number} The sum of the numbers in an array
  */
-function newMemberArrayToObject(member) {}
 
+function newMemberArrayToObject(member) {
+ 
+  filtered= member.filter((element=>
+     _.pick(element)))//lodash method implemented
+    
+    
+    const newFilter=filtered[5][1].replace(/-/g, '')//removing hyphens from telephone
+      
+    const nums= [newFilter.split("")]//splitting telephone
+    
+     let sum= nums.reduce((a,b)=>a+b)
+  newObj= Object.assign({},sum)//phoneNumber in Array  
+   
+   return Number(newObj[0])+Number(newObj[1])+Number(newObj[2])+
+  Number(newObj[3])+Number(newObj[4])+Number(newObj[5])+   Number(newObj[6])+Number(newObj[7])+Number(newObj[8])
+     +Number(newObj[9])+filtered[3][1]+filtered[6][1]//converting string values to number and adding telephonestring numericalvalue
+     // +plus skilllevel value+ age value
+     
+  }
+  
+  ; 
+  
+  console.log(newMemberArrayToObject(newMember))
 /**
- * Return an array of objects that grouped by instructors from the classes array of objects
+ * Return an array of objects that are grouped by instructors from the classes array of objects
  * @param {Object[]} collection - an array of yoga class objects
  * @return {Object[]} - the reshaped collection where the classes are grouped by instructor name
  */
-function groupClassByInstructor(collection) {}
 
+function groupClassByInstructor(collection){
+
+  return _.groupBy(collection,'instructor');{
+
+ }
+
+}
+
+console.log(groupClassByInstructor(yogaClasses))
 /**
  * Remove the age key from the members array of object
  * @param {Object} collection - an array of member objects
