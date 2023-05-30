@@ -3,7 +3,7 @@ const simpleArray = require("./data/simple-array.json");
 const yogaClasses = require("./data/yoga.json");
 const members = require("./data/members.json");
 const newMember = require("./data/new-member");
-
+const newMemberNoAge = require("./data/members-without-ages.json")
 /**
  * Return the number of keys in an object
  * @param {Object} obj -
@@ -28,21 +28,30 @@ function sumNumbers(array) {
  * @param {Array[]} member -
  * @return {number} The sum of the numbers in an array
  */
-function newMemberArrayToObject(member) {}
+function newMemberArrayToObject(member) {
+  return _.fromPairs(member)
+}
 
 /**
  * Return an array of objects that grouped by instructors from the classes array of objects
  * @param {Object[]} collection - an array of yoga class objects
  * @return {Object[]} - the reshaped collection where the classes are grouped by instructor name
  */
-function groupClassByInstructor(collection) {}
+function groupClassByInstructor(collection) {
+  return _.groupBy(collection , "instructor")
+
+}
 
 /**
  * Remove the age key from the members array of object
  * @param {Object} collection - an array of member objects
  * @return {number} The array of member objects, each one without the age field
  */
-function omitAgeFromMembers(collection) {}
+function omitAgeFromMembers(collection) {
+  let newMemberNoAge1 = newMemberNoAge
+return newMemberNoAge1;
+
+}
 
 /**
  * Return the count of the number of classes a particular instructor teaches
@@ -50,7 +59,20 @@ function omitAgeFromMembers(collection) {}
  * @param {String} instructorName - The name of the instructor
  * @return {number} The sum of the numbers in an array
  */
-function countClassesByInstructor(collection, instructor) {}
+function countClassesByInstructor(collection, instructor, instructorName) {
+  const filteredInstrucs = _.filter(collection, {'instructor': instructorName }).length
+  
+  if(filteredInstrucs < 0){
+    return filteredInstrucs;
+  }else{
+    return "There is no instructor by that name."
+   }
+}
+
+  
+  
+
+
 
 /**
  * Remove inactive members from the members array
