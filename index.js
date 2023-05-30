@@ -54,7 +54,7 @@ _.filter(collection, { instructor: instructorName }).length;
  * @param {Object} collection - an array of member objects
  * @return {number} The array of member objects with only active members
  */
-function removeInactiveMembers(collection) { }
+const removeInactiveMembers = collection => _.filter(collection, { currentMember: true })
 
 /**
  * Get a list of unique class titles and their price
