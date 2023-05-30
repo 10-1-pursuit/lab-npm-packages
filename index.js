@@ -89,15 +89,18 @@ function getUniqueClasses(collection) {
     .map(({ title, priceInCents }) => ({ title, priceInCents }));
   
 }
-console.log(getUniqueClasses(yogaClasses));
+
 /**
  * Get a list of classes organized by title, then by level.
  * The titles should be in ascending order, the levels should be in descending order
  * @param {Object} collection - an array of yoga class objects
  * @return {number} An array of objects that are organized by title then by level. The array should only have the title, instructor, and level fields
  */
-function orderClassesByTitleAndLevel(collection) {}
-
+function orderClassesByTitleAndLevel(collection) {
+  return _.orderBy(collection, ['title', 'level'], ['asc', 'desc'])
+    .map(({ title, instructor, level }) => ({ title, instructor, level }));
+}
+//console.log(orderClassesByTitleAndLevel(yogaClasses));
 module.exports = {
   numberOfKeys,
   sumNumbers,
