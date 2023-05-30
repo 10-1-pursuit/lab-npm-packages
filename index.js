@@ -69,7 +69,9 @@ const getUniqueClasses = collection => _.uniqBy(collection, "title").map(({ titl
  * @param {Object} collection - an array of yoga class objects
  * @return {number} An array of objects that are organized by title then by level. The array should only have the title, instructor, and level fields
  */
-function orderClassesByTitleAndLevel(collection) { }
+const orderClassesByTitleAndLevel = collection => 
+_.orderBy(collection, ['title', 'level'], ['asc', 'desc'])
+.map(({ title, instructor, level }) => ({ title, instructor, level }))
 
 module.exports = {
   numberOfKeys,
