@@ -69,14 +69,16 @@ function countClassesByInstructor(collection, instructor) {
   const size = _.size(filteredClasses);
   return size > 0 ? size : "There is no instructor by that name.";
 }
-console.log(countClassesByInstructor(yogaClasses, "ricon wrenn"));
+
 /**
  * Remove inactive members from the members array
  * @param {Object} collection - an array of member objects
  * @return {number} The array of member objects with only active members
  */
-function removeInactiveMembers(collection) {}
-
+function removeInactiveMembers(collection) {
+  return _.filter(collection, { currentMember: true });
+}
+console.log(removeInactiveMembers(members));
 /**
  * Get a list of unique class titles and their price
  * @param {Object} collection - an array of yoga class objects
