@@ -61,7 +61,7 @@ const removeInactiveMembers = collection => _.filter(collection, { currentMember
  * @param {Object} collection - an array of yoga class objects
  * @return {number} An array of objects that have a unique title and a price
  */
-function getUniqueClasses(collection) { }
+const getUniqueClasses = collection => _.uniqBy(collection, "title").map(({ title, priceInCents }) => ({ title, priceInCents }))
 
 /**
  * Get a list of classes organized by title, then by level.
