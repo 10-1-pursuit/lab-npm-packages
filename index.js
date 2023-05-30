@@ -12,9 +12,9 @@ const newMember = require("./data/new-member");
 function numberOfKeys(obj) {
   return _.keysIn(obj).reduce((sum, acc) => {
     acc = 1;
-    return sum + acc
+    return sum + acc;
   }, 0);
-};
+}
 
 /**
  * Remove the falsy values in a numbers array and return the sum
@@ -22,11 +22,13 @@ function numberOfKeys(obj) {
  * @return {number} The sum of the numbers in an array
  */
 function sumNumbers(array) {
-  return _.reduce(array, (sum, item) => {
-    return _.isNumber(item)
-      ? sum + item
-      : sum + 0;
-  }, 0)
+  return _.reduce(
+    array,
+    (sum, item) => {
+      return _.isNumber(item) ? sum + item : sum + 0;
+    },
+    0
+  );
 }
 
 /**
@@ -36,7 +38,7 @@ function sumNumbers(array) {
  */
 function newMemberArrayToObject(member) {
   return _.fromPairs(member);
-};
+}
 
 /**
  * Return an array of objects that grouped by instructors from the classes array of objects
@@ -44,8 +46,8 @@ function newMemberArrayToObject(member) {
  * @return {Object[]} - the reshaped collection where the classes are grouped by instructor name
  */
 function groupClassByInstructor(collection) {
-  return _.groupBy(collection, 'instructor');
-};
+  return _.groupBy(collection, "instructor");
+}
 
 /**
  * Remove the age key from the members array of object
@@ -55,15 +57,19 @@ function groupClassByInstructor(collection) {
 function omitAgeFromMembers(collection) {
   return collection.map((obj) => _.omit(obj, "age"));
 }
-console.log(omitAgeFromMembers(members));
+
 /**
  * Return the count of the number of classes a particular instructor teaches
  * @param {Object[]} collection - An array of yoga class objects
  * @param {String} instructorName - The name of the instructor
  * @return {number} The sum of the numbers in an array
  */
-function countClassesByInstructor(collection, instructor) {}
-
+function countClassesByInstructor(collection, instructor) {
+  filteredClasses = _.filter(collection, { instructor });
+  const size = _.size(filteredClasses);
+  return size > 0 ? size : "There is no instructor by that name.";
+}
+console.log(countClassesByInstructor(yogaClasses, "ricon wrenn"));
 /**
  * Remove inactive members from the members array
  * @param {Object} collection - an array of member objects
