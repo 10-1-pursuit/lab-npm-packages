@@ -9,15 +9,26 @@ const newMember = require("./data/new-member");
  * @param {Object} obj -
  * @return {number} The number of keys in the object
  */
-function numberOfKeys(obj) {}
+function numberOfKeys(obj) {
+  return _.keysIn(obj).reduce((sum, acc) => {
+    acc = 1;
+    return sum + acc
+  }, 0);
+};
 
 /**
  * Remove the falsy values in a numbers array and return the sum
  * @param {numbers[]} array - An array of numbers that can also contain some falsy values
  * @return {number} The sum of the numbers in an array
  */
-function sumNumbers(array) {}
-
+function sumNumbers(array) {
+  return _.reduce(array, (sum, item) => {
+    return _.isNumber(item)
+      ? sum + item
+      : sum + 0;
+  }, 0)
+}
+console.log(sumNumbers(simpleArray));
 /**
  * Convert a two-dimensional array of new member data (each inner array having two values: the first being the key, the second being the value) into an object
  * @param {Array[]} member -
