@@ -1,15 +1,17 @@
-const _ = require("lodash");
-const simpleArray = require("./data/simple-array.json");
-const yogaClasses = require("./data/yoga.json");
-const members = require("./data/members.json");
-const newMember = require("./data/new-member");
+const _ = require('lodash');
+const simpleArray = require('./data/simple-array.json');
+const yogaClasses = require('./data/yoga.json');
+const members = require('./data/members.json');
+const newMember = require('./data/new-member');
 
 /**
  * Return the number of keys in an object
  * @param {Object} obj -
  * @return {number} The number of keys in the object
  */
-function numberOfKeys(obj) {}
+function numberOfKeys(obj) {
+	return _.keysIn(obj).length;
+}
 
 /**
  * Remove the falsy values in a numbers array and return the sum
@@ -70,13 +72,13 @@ function getUniqueClasses(collection) {}
 function orderClassesByTitleAndLevel(collection) {}
 
 module.exports = {
-  numberOfKeys,
-  sumNumbers,
-  newMemberArrayToObject,
-  groupClassByInstructor,
-  omitAgeFromMembers,
-  countClassesByInstructor,
-  removeInactiveMembers,
-  getUniqueClasses,
-  orderClassesByTitleAndLevel,
+	numberOfKeys,
+	sumNumbers,
+	newMemberArrayToObject,
+	groupClassByInstructor,
+	omitAgeFromMembers,
+	countClassesByInstructor,
+	removeInactiveMembers,
+	getUniqueClasses,
+	orderClassesByTitleAndLevel,
 };
