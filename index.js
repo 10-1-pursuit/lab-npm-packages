@@ -96,51 +96,19 @@ function getUniqueClasses(collection) {
  * @return {number} An array of objects that are organized by title then by level. The array should only have the title, instructor, and level fields
  */
 function orderClassesByTitleAndLevel(collection) {
-	let ascendingTitles = _.sortBy(collection, ['title']);
-	ascendingTitles = ascendingTitles.map((yogaClass) =>
-		_.pick(yogaClass, ['title'])
+	let sortedCollection = _.orderBy(
+		collection,
+		['title', 'level'],
+		['asc', 'desc']
 	);
-	let descendingLevels = collection.sort((a, b) => {
-		if (a.level < b.level) {
-			return 1;
-		} else if (a.level > b.level) {
-			return -1;
-		} else {
-			return 0;
-		}
-	});
-	descendingLevels = descendingLevels.map((yogaClass) =>
-		_.pick(yogaClass, ['level'])
-	);
-	const instructors = collection.map((yogaClass) =>
-		_.pick(yogaClass, ['instructor'])
-	);
-	console.log('ascending titles ---> ', ascendingTitles);
-	console.log('descending levels ---> ', descendingLevels);
-	console.log('instructors ---> ', instructors);
 
-	const titleAndLevel = (a, b, c) => {
-		return {};
-	};
-
-	const curriedTitleLevel = _.curry(titleAndLevel);
-
-	const newCollection =
-		curriedTitleLevel(ascendingTitles)(descendingLevels)(instructors);
-	console.log('new collection ---> ', newCollection);
-
-	const test = collection.map((yogaClass) => {
-		let ascendingTitles = _.sortBy(collection, ['title']);
-		ascendingTitles = ascendingTitles.map((yogaClass) =>
-			_.pick(yogaClass, ['title'])
-		);
-
-		return _.pick(yogaClass, ['title', 'level', 'instructor']);
+	sortedCollection = sortedCollection.map((sortedClass) => {
+		return _.pick(sortedClass, ['title', 'level', 'instructor']);
 	});
 
-	console.log(test);
+	return sortedCollection;
 }
-console.log(orderClassesByTitleAndLevel(yogaClasses));
+
 module.exports = {
 	numberOfKeys,
 	sumNumbers,
