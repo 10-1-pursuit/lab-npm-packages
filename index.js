@@ -71,10 +71,10 @@ function omitAgeFromMembers(collection) {
  */
 function countClassesByInstructor(collection, teachersName) {
 
-  let instructorsWorking = _.filter(collection, { "instructor": teachersName }).length // object.keys(obj).length // propertyOf /findKey
+  let instructorsOnDuty = _.filter(collection, { "instructor": teachersName }).length // object.keys(obj).length // propertyOf /findKey
 
-  if (instructorsWorking > 0) {
-    return instructorsWorking;
+  if (instructorsOnDuty > 0) {
+    return instructorsOnDuty;
   } else {
 
     return "There is no instructor by that name."
