@@ -57,7 +57,11 @@ function omitAgeFromMembers(collection) {
  * @return {number} The amount of classes a particular instructor teaches
  */
 function countClassesByInstructor(collection, instructor) {
-  // COME BACK LATER
+  const classesByInstructor = groupClassByInstructor(collection);
+  if(classesByInstructor[instructor] === undefined){
+    return 'There is no instructor by that name.';
+  }
+  return classesByInstructor[instructor].length;
 }
 
 /**
