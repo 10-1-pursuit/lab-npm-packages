@@ -95,6 +95,19 @@ function getUniqueClasses(collection) {
  */
 function orderClassesByTitleAndLevel(collection) {
   //hatha yoga: beginner, advanced, etc ; power yoga: beginner, advanged, intermediate, ...
+// only get instructor, level and title fields
+const sorted = _.orderBy(collection, ['title', 'level'], ['asc', 'desc']);
+console.log(sorted)
+return sorted.map((o) => _.pick(o, ['instructor', 'level', 'title']))
+}
+// return _.chain(collection)
+// .groupBy("title")
+// .map((classes, title) => { 
+
+// })
+
+
+
   // const result = _.flatMap(collection, (classObj) => {
   //   const { titles, levels, instructors } = classObj;
   //   return _.map(levels, (level) => 
@@ -105,12 +118,17 @@ function orderClassesByTitleAndLevel(collection) {
   //   }))
   // })
   // return _.flatten(result)
-  return _.flatMap(collection, ({ title, schedule }) => {
-    return schedule_.map(({level, instructor }) => {
-      return { title, level, instructor }
-    })
-  })
-}
+
+
+
+  // return _.flatMap(collection, ({ title, schedule }) => {
+  //   return schedule_.map(({level, instructor }) => {
+  //     return { title, level, instructor }
+  //   })
+  // })
+
+
+
 
 module.exports = {
   numberOfKeys,
