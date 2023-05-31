@@ -51,7 +51,7 @@ describe("newMemberArrayToObject()", () => {
   });
 });
 
-describe("groupClassByInstructor()", () => {
+describe.only("groupClassByInstructor()", () => {
   test("it groups classes by instructor", () => {
     const actual = groupClassByInstructor(yogaClasses);
     const expected = classesByInstructor;
@@ -101,7 +101,7 @@ describe("getUniqueClasses()", () => {
   });
 });
 
-describe.only("orderClassesByTitleAndLevel()", () => {
+describe("orderClassesByTitleAndLevel()", () => {
   test("it returns the number of keys in an object", () => {
     const actual = orderClassesByTitleAndLevel(yogaClasses);
     const expected = [

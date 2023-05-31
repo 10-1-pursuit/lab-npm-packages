@@ -18,6 +18,7 @@ function numberOfKeys(obj) {
  * @param {numbers[]} array - An array of numbers that can also contain some falsy values
  * @return {number} The sum of the numbers in an array
  */
+
 function sumNumbers(array) {
   let result = array.filter(Number);
   return _.sum(result);
@@ -28,6 +29,7 @@ function sumNumbers(array) {
  * @param {Array[]} member -
  * @return {number} The sum of the numbers in an array
  */
+
 function newMemberArrayToObject(member) {
   return _.fromPairs(member);
 }
@@ -37,7 +39,11 @@ function newMemberArrayToObject(member) {
  * @param {Object[]} collection - an array of yoga class objects
  * @return {Object[]} - the reshaped collection where the classes are grouped by instructor name
  */
-function groupClassByInstructor(collection) {}
+
+function groupClassByInstructor(collection) {
+
+  console.log(collection)
+}
 
 /**
  * Remove the age key from the members array of object
@@ -92,7 +98,18 @@ function getUniqueClasses(collection) {
  * @param {Object} collection - an array of yoga class objects
  * @return {number} An array of objects that are organized by title then by level. The array should only have the title, instructor, and level fields
  */
-function orderClassesByTitleAndLevel(collection) {}
+function orderClassesByTitleAndLevel(collection) {
+  let sortedClassArr = []
+ let sorted = _.orderBy(collection, ['title' ,'level'],['asc', 'desc'])
+ 
+  for (let collections of sorted) {
+    let unique = _.pick(collections, ["instructor", "level", "title"]);
+    sortedClassArr.push(unique)
+  }
+  return sortedClassArr
+}
+
+
 
 module.exports = {
   numberOfKeys,
