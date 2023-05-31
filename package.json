@@ -4,14 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+		"start": "node index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pursuit-curriculum/lab-npm-packages.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Michael Kleemoff",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/pursuit-curriculum/lab-npm-packages/issues"
