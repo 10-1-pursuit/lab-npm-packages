@@ -45,9 +45,9 @@ const omitAgeFromMembers = collection => _.map(collection, (member) => _.omit(me
  * @param {String} instructorName - The name of the instructor
  * @return {number} The sum of the numbers in an array
  */
-const countClassesByInstructor = (collection, instructorName) => 
-_.isEmpty(_.filter(collection, { instructor: instructorName })) ? "There is no instructor by that name." :
-_.filter(collection, { instructor: instructorName }).length;
+const countClassesByInstructor = (collection, instructorName) =>
+  _.isEmpty(_.filter(collection, { instructor: instructorName })) ? "There is no instructor by that name." :
+    _.filter(collection, { instructor: instructorName }).length;
 
 /**
  * Remove inactive members from the members array
@@ -69,9 +69,9 @@ const getUniqueClasses = collection => _.uniqBy(collection, "title").map(({ titl
  * @param {Object} collection - an array of yoga class objects
  * @return {number} An array of objects that are organized by title then by level. The array should only have the title, instructor, and level fields
  */
-const orderClassesByTitleAndLevel = collection => 
-_.orderBy(collection, ['title', 'level'], ['asc', 'desc'])
-.map(({ title, instructor, level }) => ({ title, instructor, level }))
+const orderClassesByTitleAndLevel = collection =>
+  _.orderBy(collection, ['title', 'level'], ['asc', 'desc'])
+    .map(({ title, instructor, level }) => ({ title, instructor, level }))
 
 module.exports = {
   numberOfKeys,
