@@ -55,16 +55,20 @@ function omitAgeFromMembers(collection) {
  * Return the count of the number of classes a particular instructor teaches
  * @param {Object[]} collection - An array of yoga class objects
  * @param {String} instructorName - The name of the instructor
- * @return {number} The sum of the numbers in an array
+ * @return {number} The amount of classes a particular instructor teaches
  */
-function countClassesByInstructor(collection, instructor) {}
+function countClassesByInstructor(collection, instructor) {
+  // COME BACK LATER
+}
 
 /**
  * Remove inactive members from the members array
  * @param {Object} collection - an array of member objects
  * @return {number} The array of member objects with only active members
  */
-function removeInactiveMembers(collection) {}
+function removeInactiveMembers(collection) {
+  return _.filter(collection, {"currentMember": true});
+}
 
 /**
  * Get a list of unique class titles and their price
