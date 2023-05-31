@@ -41,8 +41,7 @@ function newMemberArrayToObject(member) {
  */
 
 function groupClassByInstructor(collection) {
-
-  console.log(collection)
+  return _.groupBy(collection, "instructor");
 }
 
 /**
@@ -99,17 +98,15 @@ function getUniqueClasses(collection) {
  * @return {number} An array of objects that are organized by title then by level. The array should only have the title, instructor, and level fields
  */
 function orderClassesByTitleAndLevel(collection) {
-  let sortedClassArr = []
- let sorted = _.orderBy(collection, ['title' ,'level'],['asc', 'desc'])
- 
+  let sortedClassArr = [];
+  let sorted = _.orderBy(collection, ["title", "level"], ["asc", "desc"]);
+
   for (let collections of sorted) {
     let unique = _.pick(collections, ["instructor", "level", "title"]);
-    sortedClassArr.push(unique)
+    sortedClassArr.push(unique);
   }
-  return sortedClassArr
+  return sortedClassArr;
 }
-
-
 
 module.exports = {
   numberOfKeys,

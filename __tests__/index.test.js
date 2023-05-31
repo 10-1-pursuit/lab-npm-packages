@@ -51,7 +51,7 @@ describe("newMemberArrayToObject()", () => {
   });
 });
 
-describe.only("groupClassByInstructor()", () => {
+describe("groupClassByInstructor()", () => {
   test("it groups classes by instructor", () => {
     const actual = groupClassByInstructor(yogaClasses);
     const expected = classesByInstructor;
