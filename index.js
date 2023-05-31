@@ -37,14 +37,19 @@ function newMemberArrayToObject(member) {
  * @param {Object[]} collection - an array of yoga class objects
  * @return {Object[]} - the reshaped collection where the classes are grouped by instructor name
  */
-function groupClassByInstructor(collection) {}
+function groupClassByInstructor(collection) {
+   _.filter(collection, instructor)
+   // COME BACK LATER 😭
+}
 
 /**
  * Remove the age key from the members array of object
  * @param {Object} collection - an array of member objects
  * @return {number} The array of member objects, each one without the age field
  */
-function omitAgeFromMembers(collection) {}
+function omitAgeFromMembers(collection) {
+  return collection.map(member => _.omit(member, "age"))
+}
 
 /**
  * Return the count of the number of classes a particular instructor teaches
