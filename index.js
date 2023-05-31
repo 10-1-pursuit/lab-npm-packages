@@ -60,6 +60,24 @@ function newMemberArrayToObject(member) {
   ; 
   
   console.log(newMemberArrayToObject(newMember))
+
+  function newMemberArrayToObject(member) {
+ 
+    filtered= member.filter((element=>
+       _.pick(element)))//lodash method implemented
+    object= Object.assign({},filtered)
+     answer=  "{"+JSON.stringify( object[0][0]+": "+object[0][1]+
+             " "+object[1][0]+": "+object[1][1]+
+             " "+object[2][0]+": "+object[2][1]+
+             " "+object[3][0]+": "+object[3][1]+
+             " "+object[4][0]+": "+object[4][1]+
+            " "+ object[5][0]+": "+object[5][1]+
+             " "+object[6][0]+": "+object[6][1]+
+        "}");
+      answerObj= Object.assign(({answer}))
+      return Object.values(answerObj)
+    }
+      console.log(newMemberArrayToObject(newMember))
 /**
  * Return an array of objects that are grouped by instructors from the classes array of objects
  * @param {Object[]} collection - an array of yoga class objects
@@ -76,11 +94,20 @@ function groupClassByInstructor(collection){
 
 console.log(groupClassByInstructor(yogaClasses))
 /**
- * Remove the age key from the members array of object
+ * Remove the age key from the members array of object WORKING ON STILL-------------------
  * @param {Object} collection - an array of member objects
  * @return {number} The array of member objects, each one without the age field
  */
-function omitAgeFromMembers(collection) {}
+function omitAgeFromMembers(collection) {
+
+  const omit= _.remove(collection, function(n){
+    if(Object.keys(collection)=== "age"){
+      return true;
+    }
+
+  })
+}
+console.log(omitAgeFromMembers(members))
 
 /**
  * Return the count of the number of classes a particular instructor teaches
@@ -88,8 +115,10 @@ function omitAgeFromMembers(collection) {}
  * @param {String} instructorName - The name of the instructor
  * @return {number} The sum of the numbers in an array
  */
-function countClassesByInstructor(collection, instructor) {}
+function countClassesByInstructor(collection, instructor) {
 
+}
+countClassesByInstructor(yogaClasses,"Lazuli Moon")
 /**
  * Remove inactive members from the members array
  * @param {Object} collection - an array of member objects
@@ -110,7 +139,14 @@ function getUniqueClasses(collection) {}
  * @param {Object} collection - an array of yoga class objects
  * @return {number} An array of objects that are organized by title then by level. The array should only have the title, instructor, and level fields
  */
-function orderClassesByTitleAndLevel(collection) {}
+function orderClassesByTitleAndLevel(collection) {
+  myOrder= _.orderBy(collection,["title","level"],["asc","desc"]);{
+
+
+  }
+  return myOrder
+}
+console.log(orderClassesByTitleAndLevel(yogaClasses))
 
 module.exports = {
   numberOfKeys,
