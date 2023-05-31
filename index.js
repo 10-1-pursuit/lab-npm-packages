@@ -11,7 +11,7 @@ const membersNoAge = require("./data/members-without-ages.json")
  */
 function numberOfKeys(obj) {
 
-return _.keys(obj).length
+return _.keys(obj).length    //this retrives all the keys(property names) and returns them as an array. Getting the length to count nunber of
 
 }
 //console.log(numberOfKeys(yogaClasses))
@@ -22,8 +22,8 @@ return _.keys(obj).length
  */
 function sumNumbers(array) {
 
-  let correctArray = _.compact(array)
-  return _.sum(correctArray)
+  let correctArray = _.compact(array)  // this function weeds out all falsy values (null, undefined, 0, "") and returns an array of true values.
+  return _.sum(correctArray)  // called on numbers-finds the sum.
 }
 //console.log(sumNumbers(simpleArray))
 /**
@@ -33,7 +33,7 @@ function sumNumbers(array) {
  */
 function newMemberArrayToObject(member) {
 
- return  _.fromPairs(member);
+ return  _.fromPairs(member);   // takes an array of key/value pairs and returns objected created from them. Where the first element of each becomes the key and the second element becomes the value.
   
 }
 
@@ -44,7 +44,7 @@ function newMemberArrayToObject(member) {
  */
 function groupClassByInstructor(collection) {
 
- return _.groupBy(collection,"instructor" );
+ return _.groupBy(collection,"instructor" );     // a function with 2 argu. the array and the criterion your looking for. Creates a object where the keys are the "instructor" and the values are there stuff. 
 }
 
 /**
@@ -54,7 +54,7 @@ function groupClassByInstructor(collection) {
  */
 function omitAgeFromMembers(collection) {
 
-  return _.map(collection, (members) => _.omit(members, "age"));
+  return _.map(collection, (members) => _.omit(members, "age"));   // using .map to apply a function/.omit to each object.. Omit creates a new object by omitting the criterion this case age (as a string)
 }
 
 /**
@@ -65,8 +65,8 @@ function omitAgeFromMembers(collection) {
  */
 function countClassesByInstructor(collection, instructorName) {
 //(instructor != undefined) ? _.countBy(collection, instructor) : "There is no instructor by that name."
-const filteredCollection = _.filter(collection, {'instructor': instructorName}).length;
- return (filteredCollection > 0) ? filteredCollection : "There is no instructor by that name.";
+const filteredCollection = _.filter(collection, {'instructor': instructorName}).length;  //this will filter the collection by the name as a string and result in an array of objects.
+ return (filteredCollection > 0) ? filteredCollection : "There is no instructor by that name.";  // a ternary ? = if; : = else
 
 }
 
@@ -77,7 +77,7 @@ const filteredCollection = _.filter(collection, {'instructor': instructorName}).
  */
 function removeInactiveMembers(collection) {
 
-let filteredMembers = _.filter(collection, (members) => members.currentMember)
+let filteredMembers = _.filter(collection, (members) => members.currentMember)    //if the method finds a true value it keeps it, if false it removes it.
 return filteredMembers;
 }
 
@@ -87,9 +87,9 @@ return filteredMembers;
  * @return {number} An array of objects that have a unique title and a price
  */
 function getUniqueClasses(collection) {
-
-  let NewClassInfo = _.map(_.uniqBy(collection, "title"), ({title, priceInCents }) => ({title, priceInCents}));
-  return NewClassInfo
+                                                            //destructuring each elment uses the (title, price in cents) and {returns price in cents}
+  let NewClassInfo = _.map(_.uniqBy(collection, "title"), ({title, priceInCents }) => ({title, priceInCents})); // calling _.map to apply a function to each index of our array. 
+  return NewClassInfo                // .creates a  unique array based on the title key property, creating a new object with the first occurence of it found. 
 }
 
 /**
@@ -99,12 +99,12 @@ function getUniqueClasses(collection) {
  * @return {number} An array of objects that are organized by title then by level. The array should only have the title, instructor, and level fields
  */
 function orderClassesByTitleAndLevel(collection) {
-  let reorganizedClasses = _.map(
-    _.orderBy(collection, ['title', 'level'], ['asc', 'desc']),
-    ({ title, instructor, level }) => ({ title, instructor, level })
+  let reorganizedByClasses = _.map(                                // A. .map 2 arguements: 1. the reorder array created by Orderby. 2. callback function.
+    _.orderBy(collection, ['title', 'level'], ['asc', 'desc']),  // B. OrderBy 3 arguments:1. the array of yoga classes, 2. the portion to be sorted (in our case an array of title/level), 3. the order which is asc/dec 
+    ({ title, instructor, level }) => ({ title, instructor, level })  // destructured assignment that (uses) the title, instructor and level (key value pairs) and {returns} only those properties.
   );
  
-   return reorganizedClasses;
+   return reorganizedByClasses;
 }
 
 module.exports = {
