@@ -20,29 +20,37 @@ function numberOfKeys(obj) {
  * @return {number} The sum of the numbers in an array
  */
 function sumNumbers(array) {
-  return _.compact([0,1,false, 2, ', 3'])
+  const _ = require('lodash');
+  return _.compact(array).reduce((acc,curr) => acc + curr, 0);
 }
+console.log(sumNumbers(simpleArray));
 
 /**
  * Convert a two-dimensional array of new member data (each inner array having two values: the first being the key, the second being the value) into an object
  * @param {Array[]} member -
  * @return {number} The sum of the numbers in an array
  */
-function newMemberArrayToObject(member) {}
+function newMemberArrayToObject(member) {
+  return _.fromPairs(member);
+}
 
 /**
  * Return an array of objects that grouped by instructors from the classes array of objects
  * @param {Object[]} collection - an array of yoga class objects
  * @return {Object[]} - the reshaped collection where the classes are grouped by instructor name
  */
-function groupClassByInstructor(collection) {}
+function groupClassByInstructor(collection) {
+ return _.groupBy(collection, "instructor");
+}
 
 /**
  * Remove the age key from the members array of object
  * @param {Object} collection - an array of member objects
  * @return {number} The array of member objects, each one without the age field
  */
-function omitAgeFromMembers(collection) {}
+function omitAgeFromMembers(collection) {
+  return _.map(collection, (member) => _.omit(member,'age'))
+}
 
 /**
  * Return the count of the number of classes a particular instructor teaches
@@ -50,14 +58,27 @@ function omitAgeFromMembers(collection) {}
  * @param {String} instructorName - The name of the instructor
  * @return {number} The sum of the numbers in an array
  */
-function countClassesByInstructor(collection, instructor) {}
+function countClassesByInstructor(collection, instructor) {
+  let understandableInst = _.filter(collection, { "instructor": instructor }).length 
+
+  if (understandableInst > 0) {
+    return understandableInst;
+  } else {
+
+    return "There is no instructor by that name."
+  }
+
+}
+
 
 /**
  * Remove inactive members from the members array
  * @param {Object} collection - an array of member objects
  * @return {number} The array of member objects with only active members
  */
-function removeInactiveMembers(collection) {}
+function removeInactiveMembers(collection) {
+  return _.filter(collection, { active: true});
+}
 
 /**
  * Get a list of unique class titles and their price
