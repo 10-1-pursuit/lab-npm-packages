@@ -50,9 +50,8 @@ function groupClassByInstructor(collection) {
  * @return {number} The array of member objects, each one without the age field
  */
 function omitAgeFromMembers(collection) {
-	return _.map(collection, (member) => {
-		delete member.age;
-		return member;
+	return _.map(collection, function (member) {
+		return _.omit(member, ['age']);
 	});
 }
 
@@ -71,10 +70,12 @@ function countClassesByInstructor(collection, instructorName) {
 
 /**
  * Remove inactive members from the members array
- * @param {Object} collection - an array of member objects
- * @return {number} The array of member objects with only active members
+ * @param {Object[]} collection - an array of member objects
+ * @return {Object[]} The array of member objects with only active members
  */
-function removeInactiveMembers(collection) {}
+function removeInactiveMembers(collection) {
+	return _.filter(collection, ['currentMember', true]);
+}
 
 /**
  * Get a list of unique class titles and their price

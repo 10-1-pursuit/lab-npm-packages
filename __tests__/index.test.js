@@ -6,7 +6,6 @@ const classesByInstructor = require('../data/classes-by-instructor');
 const membersWithoutAges = require('../data/members-without-ages');
 const onlyActiveMembers = require('../data/only-active-members.json');
 
-// console.log(members.length, membersWithoutAges.length);
 const {
 	numberOfKeys,
 	sumNumbers,
@@ -81,7 +80,7 @@ describe('countClassesByInstructor()', () => {
 });
 
 describe('removeInactiveMembers()', () => {
-	test('it returns the number of keys in an object', () => {
+	test('it returns the array with only active members', () => {
 		const actual = removeInactiveMembers(members);
 		const expected = onlyActiveMembers;
 		expect(actual).toStrictEqual(expected);
