@@ -28,14 +28,30 @@ function sumNumbers(array) {
  * @param {Array[]} member -
  * @return {number} The sum of the numbers in an array
  */
-function newMemberArrayToObject(member) { }
+function newMemberArrayToObject(member) {
+  return _.fromPairs(member);
+}
 
 /**
  * Return an array of objects that grouped by instructors from the classes array of objects
  * @param {Object[]} collection - an array of yoga class objects
  * @return {Object[]} - the reshaped collection where the classes are grouped by instructor name
  */
-function groupClassByInstructor(collection) { }
+function groupClassByInstructor(collection) {
+  // console.log(collection);
+
+  console.log(_.reduce(collection))
+
+  for (const elements of collection) {
+    const emptyArray = [];
+    const yogaClassObj = _.mapValues(elements);
+    const instructorsName = elements.instructor
+    // console.log(yogaClassObj);
+    if (instructorsName === yogaClassObj.instructor) {
+      // console.log("yes it works!")
+    }
+  }
+}
 
 /**
  * Remove the age key from the members array of object
