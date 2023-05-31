@@ -38,8 +38,7 @@ function newMemberArrayToObject(member) {
  * @return {Object[]} - the reshaped collection where the classes are grouped by instructor name
  */
 function groupClassByInstructor(collection) {
-   _.filter(collection, instructor)
-   // COME BACK LATER 😭
+   return _.groupBy(collection, "instructor")
 }
 
 /**
