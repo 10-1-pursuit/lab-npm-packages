@@ -71,7 +71,6 @@ function omitAgeFromMembers(collection) {
  */
 function countClassesByInstructor(collection, teachersName) {
 
-  let count = 0;
   let howManyClasses = _.filter(collection, { "instructor": teachersName }).length // object.keys(obj).length // propertyOf /findKey
 
   if (howManyClasses > 0) {
