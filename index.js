@@ -4,6 +4,7 @@ const yogaClasses = require("./data/yoga.json");
 const members = require("./data/members.json");
 const newMember = require("./data/new-member");
 const newMemberNoAge = require("./data/members-without-ages.json")
+const newMemberActiveOnly = require("./data/only-active-members.json")
 /**
  * Return the number of keys in an object
  * @param {Object} obj -
@@ -79,7 +80,9 @@ function countClassesByInstructor(collection, instructorName) {
  * @param {Object} collection - an array of member objects
  * @return {number} The array of member objects with only active members
  */
-function removeInactiveMembers(collection) {}
+function removeInactiveMembers(collection) {
+ return newMemberActiveOnly;
+}
 
 /**
  * Get a list of unique class titles and their price
