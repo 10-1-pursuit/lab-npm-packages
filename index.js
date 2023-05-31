@@ -82,7 +82,12 @@ function removeInactiveMembers(collection) {
  * @param {Object} collection - an array of yoga class objects
  * @return {number} An array of objects that have a unique title and a price
  */
-function getUniqueClasses(collection) {}
+function getUniqueClasses(collection) {
+	const noDuplicateTitle = _.uniqBy(collection, 'title');
+	return _.map(noDuplicateTitle, (yogaClass) => {
+		return _.pick(yogaClass, ['title', 'priceInCents']);
+	});
+}
 
 /**
  * Get a list of classes organized by title, then by level.
