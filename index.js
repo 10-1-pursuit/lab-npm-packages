@@ -19,11 +19,15 @@ function numberOfKeys(obj) {
  * @param {numbers[]} array - An array of numbers that can also contain some falsy values
  * @return {number} The sum of the numbers in an array
  */
-function sumNumbers(array) { }
+function sumNumbers(array) {
+  const numbers = _.compact(array);
+  const result = _.sum(numbers);
+  return result;
+}
 
 /**
  * Convert a two-dimensional array of new member data (each inner array having two values: the first being the key, the second being the value) into an object
- * @param {Array[]} member -
+ * @param {Array[]} memb🔑er -
  * @return {number} The sum of the numbers in an array
  */
 function newMemberArrayToObject(member) { }
