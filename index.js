@@ -37,7 +37,7 @@ console.log(sumNumbers(simpleArray))
  * @return {number} The sum of the numbers in an array
  */
 
-function newMemberArrayToObject(member) {
+function newMemberArrayToObject(member) {// there was a typo says Sum so i left so you can see the method i used
  
   filtered= member.filter((element=>
      _.pick(element)))//lodash method implemented
