@@ -48,7 +48,11 @@ function groupClassByInstructor(collection) {
  * @param {Object} collection - an array of member objects
  * @return {number} The array of member objects, each one without the age field
  */
-function omitAgeFromMembers(collection) { }
+function omitAgeFromMembers(collection) {
+  return collection.map(member => _.omit(member, 'age'));
+}
+// Should pass but was commented out...? 🤷🏾‍♂️
+
 
 /**
  * Return the count of the number of classes a particular instructor teaches
@@ -56,7 +60,13 @@ function omitAgeFromMembers(collection) { }
  * @param {String} instructorName - The name of the instructor
  * @return {number} The sum of the numbers in an array
  */
-function countClassesByInstructor(collection, instructor) { }
+function countClassesByInstructor(collection, instructorName) {
+  const count = _.filter(collection, { instructor: instructorName }).length;
+  if (count === 0) {
+    return "There is no instructor by that name.";
+  }
+  return count;
+}
 
 /**
  * Remove inactive members from the members array
