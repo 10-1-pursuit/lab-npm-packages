@@ -30,7 +30,9 @@ function sumNumbers(array) {
  * @param {Array[]} memb🔑er -
  * @return {number} The sum of the numbers in an array
  */
-function newMemberArrayToObject(member) { }
+function newMemberArrayToObject(member) {
+  return _.fromPairs(member);
+}
 
 /**
  * Return an array of objects that grouped by instructors from the classes array of objects
