@@ -106,6 +106,7 @@ function omitAgeFromMembers(collection) {
     }
 
   })
+  return omit
 }
 console.log(omitAgeFromMembers(members))
 
@@ -117,22 +118,39 @@ console.log(omitAgeFromMembers(members))
  */
 function countClassesByInstructor(collection, instructor) {
 
+           _.flatMapDeep((collection)=> (instructor ===Object.keys(collection)))
+return
 }
+
 countClassesByInstructor(yogaClasses,"Lazuli Moon")
 /**
  * Remove inactive members from the members array
  * @param {Object} collection - an array of member objects
  * @return {number} The array of member objects with only active members
  */
-function removeInactiveMembers(collection) {}
+function removeInactiveMembers(collection) {
+  const removeMember= collection.sort((element)=>{
+    if(element.currentMember === false){
+
+      return _.pull(collection,element.age)
+    }
+  })
+  return removeMember
+
+}
 
 /**
  * Get a list of unique class titles and their price
  * @param {Object} collection - an array of yoga class objects
  * @return {number} An array of objects that have a unique title and a price
  */
-function getUniqueClasses(collection) {}
+function getUniqueClasses(collection) {
+let wrapped=_([collection]);
+return Array.from(wrapped);
 
+
+}
+getUniqueClasses(yogaClasses)
 /**
  * Get a list of classes organized by title, then by level.
  * The titles should be in ascending order, the levels should be in descending order
