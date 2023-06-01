@@ -39,7 +39,9 @@ function newMemberArrayToObject(member) {
  * @param {Object[]} collection - an array of yoga class objects
  * @return {Object[]} - the reshaped collection where the classes are grouped by instructor name
  */
-function groupClassByInstructor(collection) { }
+function groupClassByInstructor(collection) {
+  return _.groupBy(collection, 'instructor');
+}
 
 /**
  * Remove the age key from the members array of object
