@@ -76,9 +76,20 @@ function removeInactiveMembers(collection) {
 /**
  * Get a list of unique class titles and their price
  * @param {Object} collection - an array of yoga class objects
- * @return {number} An array of objects that have a unique title and a price
+ * @return {Object[]} An array of objects that have a unique title and a price
  */
-function getUniqueClasses(collection) {}
+function getUniqueClasses(collection) {
+  let groupByClass = _.groupBy(collection, "title");
+
+  groupByClass = _.toPairs(groupByClass);
+
+  for(let i = 0; i < groupByClass.length; i++){
+    groupByClass[i] = {title: groupByClass[i][0], priceInCents: groupByClass[i][1][0].priceInCents}
+  }
+
+  return groupByClass;
+
+}
 
 /**
  * Get a list of classes organized by title, then by level.
