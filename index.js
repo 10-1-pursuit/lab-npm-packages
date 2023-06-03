@@ -75,6 +75,7 @@ function countClassesByInstructor(collection, instructorName) {
  */
 function removeInactiveMembers(collection) {
   return _.filter(collection, { active: true });
+
 }
 
 /**
