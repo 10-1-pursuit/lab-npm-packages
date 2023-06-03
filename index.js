@@ -73,14 +73,24 @@ function countClassesByInstructor(collection, instructorName) {
  * @param {Object} collection - an array of member objects
  * @return {number} The array of member objects with only active members
  */
-function removeInactiveMembers(collection) { }
+function removeInactiveMembers(collection) {
+  return _.filter(collection, { active: true });
+}
 
 /**
  * Get a list of unique class titles and their price
  * @param {Object} collection - an array of yoga class objects
  * @return {number} An array of objects that have a unique title and a price
  */
-function getUniqueClasses(collection) { }
+function getUniqueClasses(collection) {
+  const uniqueClasses = _.uniqBy(collection, 'title');
+  return _.map(uniqueClasses, item => {
+    return {
+      title: item.title,
+      priceInCents: item.priceInCents
+    };
+  });
+}
 
 /**
  * Get a list of classes organized by title, then by level.
@@ -88,7 +98,15 @@ function getUniqueClasses(collection) { }
  * @param {Object} collection - an array of yoga class objects
  * @return {number} An array of objects that are organized by title then by level. The array should only have the title, instructor, and level fields
  */
-function orderClassesByTitleAndLevel(collection) { }
+function orderClassesByTitleAndLevel(collection) {
+  return _.orderBy(collection, ['title', 'level'], ['asc', 'desc']).map(item => ({
+    title: item.title,
+    instructor: item.instructor,
+    level: item.level
+  }));
+}
+// asc: ascending, desc: descending
+
 
 module.exports = {
   numberOfKeys,
