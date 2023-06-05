@@ -88,16 +88,39 @@ function getUniqueClasses(collection) {
   }
 
   return groupByClass;
-
 }
 
 /**
  * Get a list of classes organized by title, then by level.
  * The titles should be in ascending order, the levels should be in descending order
  * @param {Object} collection - an array of yoga class objects
- * @return {number} An array of objects that are organized by title then by level. The array should only have the title, instructor, and level fields
+ * @return {Object[]} An array of objects that are organized by title then by level. The array should only have the title, instructor, and level fields
  */
-function orderClassesByTitleAndLevel(collection) {}
+/**
+ * ex: 
+ * [
+      {
+        title: "Hatha Yoga",
+        level: "Beginner",
+        instructor: "Zephyr Woods",
+      },
+      { title: "Hatha Yoga", level: "Beginner", instructor: "Lazuli Moon" },
+      { title: "Hatha Yoga", level: "Beginner", instructor: "Lazuli Moon" },
+      {
+        title: "Hatha Yoga",
+        level: "All Levels",
+        instructor: "Kairos Snow",
+      }
+    ]
+ */
+function orderClassesByTitleAndLevel(collection) {
+  const orderedArray = _.orderBy(collection, ['title', 'level'], ['asc', 'desc']);
+  // orderedArray.map( (classObject) => {return _.pick(classObject, ['title', 'level', 'instructor'])});
+  // for(let classObject of orderedArray){
+  //   classObject = _.pick(classObject, ['title', 'level', 'instructor'])
+  // }
+  return orderedArray;
+}
 
 module.exports = {
   numberOfKeys,
