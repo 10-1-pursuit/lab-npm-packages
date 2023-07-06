@@ -1,7 +1,7 @@
 {
   "name": "lab-npm-packages",
   "version": "1.0.0",
-  "description": "",
+  "description": "You will be working with a new package, `lodash`. Lodash is a modern JavaScript utility library: in other words, it provides a good number of helper functions to assist you in building out your functions.",
   "main": "index.js",
   "scripts": {
     "test": "jest"
